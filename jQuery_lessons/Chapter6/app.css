@@ -1,0 +1,9 @@
+.box1 {
+  background-color: #ff0000;
+  width: 200px;
+  height: 200px;
+}
+
+.box1-ext {
+  border: 10px solid black;
+}

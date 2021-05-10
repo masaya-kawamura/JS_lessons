@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1 {
+  text-align: center;
+  margin: 50px;
+}
+.box {
+  height: 90px;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto 10px;
+  background-color: #eee;
+}
+/* ------------------------- */
+/* ----ハンバーガーアイコン---- */
+/* ------------------------- */
+/* #hm-iconはハンバーガーメニューの３本線を囲っているid */
+/* 絶対位置への配置を指定。
+  右から20px、上から20pxの位置を指定 */
+/* 重なり順を指定。
+  数字が大きいほど上にくる。
+  レイヤーを重ねるイメージ */
+#hm-icon {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 10;
+}
+
+/* .menu-trigger３本線を囲っているaタグ
+.menu-trigger spanは３本線である */
+/* display: inlene-blockで縦に並べる
+toranstion: all.4sでアニメーションの速度を設定
+box-sizing: border-boxでパディングとボーダーを幅と高さに含める */
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all 0.4s;
+  box-sizing: border-box;
+}
+
+/* .menu-triggerは３本線を囲っているaタグに付与されたclass属性
+position: rerativeで基準値値を定義（子要素にabsoluteを設定）
+widthとheightを使って透明のBOXを作成している */
+
+.menu-trigger {
+  position: relative;
+  width: 50px;
+  height: 44px;
+}
+
+/* 下記は３本線自体である */
+/* position: absoluteで３本線位置をリセット（後で調整） */
+/* width: 100%で親要素いっぱいのは幅に設定し
+heightで線の太さを設定
+線の色を指定して、角丸に設定している。 */
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+}
+
+/* 下記では、３本線のそれぞれの位置を指定している。 */
+
+.menu-trigger span:nth-child(1) {
+  top: 0;
+}
+.menu-trigger span:nth-child(2) {
+  top: 20px;
+}
+.menu-trigger span:nth-child(3) {
+  bottom: 0;
+}
+
+/* activeクラスを定義し、onになった時に、表示される
+アニメーションを設定している。 */
+.menu-trigger.active span:nth-child(1) {
+  -webkit-transform: translateY(20px) rotate(-45deg);
+  transform: translateY(20px) rotate(-45deg);
+  background-color: #fff;
+}
+.menu-trigger.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-trigger.active span:nth-child(3) {
+  -webkit-transform: translateY(-20px) rotate(45deg);
+  transform: translateY(-20px) rotate(45deg);
+  background-color: #fff;
+}
+
+/* ------------------------ */
+/* ------ spメニュー ------ */
+/* ------------------------ */
+
+/* デフォルの設定は非表示(display: none) */
+/* $('.menu-trigger').on('click',function(){
+  $('#sp-menu').fadeToggle();で呼び出される */
+/* レイヤー的に、メインコンテンツの上に重ねるように配置されており
+ハンバーガーメニューがクリックされると表示されるようになる。 */
+#sp-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  color: #fff;
+  width: 100%;
+  min-height: 100%;
+  display: none;
+  z-index: 9;
+}
+
+/* sp-menuのリストとaタグのスタイル設定 */
+
+#sp-menu li {
+  text-align: center;
+  margin-bottom: 30px;
+}
+#sp-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}

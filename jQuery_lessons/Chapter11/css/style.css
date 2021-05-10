@@ -1,0 +1,82 @@
+/* 外部ファイルの場合は、必ず記述する↓ */
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* タイトルを中央寄せ、上下の余白を50px */
+h1 {
+  text-align: center;
+  margin: 50px 0;
+}
+
+/* タブメニューのBOX定義 */
+/* 横幅が画面全体の90%、最大800pxまでに指定。
+真ん中寄せ */
+.wrap {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* タブメニューulのスタイルを指定 */
+/* flex boxを定義し、リストを横並びにする */
+#tab-menu {
+  display: flex;
+}
+
+/* タブメニューのスタイル定義 */
+/* リストの「・」をなくし、横幅をwrapの横幅に対し */
+/* 各要素が25%になるように設定 */
+#tab-menu li {
+  list-style-type: none;
+  width: 25%;
+}
+
+/* リストのaタグに対してスタイル定義 */
+/* 文字色：白　文字装飾（下線）なし　インライン要素→ブロック要素 */
+#tab-menu li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  background: #000;
+  border: 1px solid #000;
+  border-bottom: none;
+}
+
+/* jQのactiveに設定されたaタグの背景色と文字色反転 */
+#tab-menu .active {
+  background: #fff;
+  color: #000;
+}
+
+/* タブコンテンツ設定
+flex-wrapでタブの幅に合わせて文字やコンテンツが折り返される */
+#tab-contents {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* タブの中身のスタイル定義 */
+/* 横幅いっぱい、ボーダー内余白30pxに設定
+背景色は白、外枠を1pxの線色は黒
+上側の外枠だけ無くす。 */
+#tab-contents .tab {
+  width: 100%;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #000;
+  border-top: none;
+}
+
+/* タブコンテンツの文字（p）のスタイル定義 */
+#tab-contents p {
+  color: #000;
+  line-height: 2.5;
+  /* 文字の大きさは含まない値 */
+}
